@@ -1,0 +1,15 @@
+// Como a ideia do jogo ainda está muito abstrata criei esse arquivo para descrever o desenvolvimento do jogo e as informações
+funções e alterações que devem ser insidas 
+
+**Funções**
+São nescessárias as funções:
+
+*Para criação de nome, e que o jogo se ferira ao jogador com esse nome;
+*Escolha do gênero;
+*Sinopses e cenários, é nescessária a descrição correta de cada cenário e a construção de uma história dinâmica que mude de
+acordo com a escolha do jogador;
+*Alimentação dos dados sobre rochas, a minha bibliográfia será básicamente o Manual de Ciências dos Minerais e o livro Decifrando a terra;
+
+**Arquivos**
+
+**História**

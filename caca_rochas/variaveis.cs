@@ -8,6 +8,32 @@ class Jogo
 █▄▄ █▀▀ █▀▄▀█ ▄▄ █░█ █ █▄░█ █▀▄ █▀█   ▄▀█ █▀█   █▀▄▀█ █░█ █▄░█ █▀▄ █▀█   █▀▄ ▄▀█ █▀   █▀█ █▀█ █▀▀ █░█ ▄▀█ █▀ █
 █▄█ ██▄ █░▀░█ ░░ ▀▄▀ █ █░▀█ █▄▀ █▄█   █▀█ █▄█   █░▀░█ █▄█ █░▀█ █▄▀ █▄█   █▄▀ █▀█ ▄█   █▀▄ █▄█ █▄▄ █▀█ █▀█ ▄█ ▄");
     }
+
+    void EscolherCaminho()
+    {
+        Console.WriteLine("\nVocê está diante de duas cavernas misteriosas. Uma delas leva ao caminho da aventura e a outra ao caminho do conhecimento.");
+        Console.WriteLine("Qual caverna você escolhe explorar? Digite 1 ou 2:");
+        
+        string escolha = Console.ReadLine();
+
+        if (escolha == "1")
+        {
+            Console.WriteLine("Você escolheu a Caverna da Aventura!");
+            // Aqui você pode prosseguir com uma história de aventura.
+            Console.WriteLine("Prepare-se para enfrentar perigos desconhecidos e desvendar mistérios emocionantes!\n");
+        }
+        else if (escolha == "2")
+        {
+            Console.WriteLine("Você escolheu a Caverna do Conhecimento!");
+            // Aqui você pode prosseguir com uma história mais focada em conhecimento e desafios intelectuais.
+            Console.WriteLine("Prepare-se para aprender conceitos geológicos complexos e enfrentar enigmas intrigantes!\n");
+        }
+        else
+        {
+            Console.WriteLine("Opção inválida. Por favor, escolha 1 ou 2 para prosseguir.");
+            EscolherCaminho(); // Caso a escolha seja inválida, chama a função novamente para nova tentativa.
+        }
+    }
     void ExibirSinopse()
     {
         Console.WriteLine("**\"As Crônicas da Geologia Fantástica\"**");
