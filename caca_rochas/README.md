@@ -15,11 +15,11 @@ Este é um projeto inicial em C#. Pode conter imperfeições, mas estou comprome
 
 Se deseja colaborar:
 
-    Faça um fork deste repositório.
-    Crie um branch para sua contribuição (git checkout -b sua-contribuicao).
-    Realize as alterações e comente sobre elas.
-    Faça um commit (git commit -m 'Descrição da sua contribuição').
-    Envie um pull request com detalhes das alterações.
+    1. Faça um fork deste repositório.
+    2. Crie um branch para sua contribuição (git checkout -b sua-contribuicao).
+    3. Realize as alterações e comente sobre elas.
+    4. Faça um commit (git commit -m 'Descrição da sua contribuição').
+    5. Envie um pull request com detalhes das alterações.
 
 Vou avaliar as contribuições; se benéficas, serão incorporadas ao projeto principal.
 
