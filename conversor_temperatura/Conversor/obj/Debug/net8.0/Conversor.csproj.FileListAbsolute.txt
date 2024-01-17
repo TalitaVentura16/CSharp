@@ -1,0 +1,15 @@
+/home/talita/Documentos/CSharp/conversor_temperatura/Conversor/bin/Debug/net8.0/Conversor
+/home/talita/Documentos/CSharp/conversor_temperatura/Conversor/bin/Debug/net8.0/Conversor.deps.json
+/home/talita/Documentos/CSharp/conversor_temperatura/Conversor/bin/Debug/net8.0/Conversor.runtimeconfig.json
+/home/talita/Documentos/CSharp/conversor_temperatura/Conversor/bin/Debug/net8.0/Conversor.dll
+/home/talita/Documentos/CSharp/conversor_temperatura/Conversor/bin/Debug/net8.0/Conversor.pdb
+/home/talita/Documentos/CSharp/conversor_temperatura/Conversor/obj/Debug/net8.0/Conversor.GeneratedMSBuildEditorConfig.editorconfig
+/home/talita/Documentos/CSharp/conversor_temperatura/Conversor/obj/Debug/net8.0/Conversor.AssemblyInfoInputs.cache
+/home/talita/Documentos/CSharp/conversor_temperatura/Conversor/obj/Debug/net8.0/Conversor.AssemblyInfo.cs
+/home/talita/Documentos/CSharp/conversor_temperatura/Conversor/obj/Debug/net8.0/Conversor.csproj.CoreCompileInputs.cache
+/home/talita/Documentos/CSharp/conversor_temperatura/Conversor/obj/Debug/net8.0/Conversor.sourcelink.json
+/home/talita/Documentos/CSharp/conversor_temperatura/Conversor/obj/Debug/net8.0/Conversor.dll
+/home/talita/Documentos/CSharp/conversor_temperatura/Conversor/obj/Debug/net8.0/refint/Conversor.dll
+/home/talita/Documentos/CSharp/conversor_temperatura/Conversor/obj/Debug/net8.0/Conversor.pdb
+/home/talita/Documentos/CSharp/conversor_temperatura/Conversor/obj/Debug/net8.0/Conversor.genruntimeconfig.cache
+/home/talita/Documentos/CSharp/conversor_temperatura/Conversor/obj/Debug/net8.0/ref/Conversor.dll
