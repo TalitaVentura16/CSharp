@@ -1,5 +1,5 @@
 /// <summary>
-/// A ideia desse programa eh realizar a conversao de temperatura para Fahrenheit, Celsius, e Kelvim  
+/// A ideia desse programa eh realizar a conversao de temperatura para Fahrenheit, Celsius, e Kelvin  
 /// </sumary>
 using System;
 
