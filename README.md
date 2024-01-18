@@ -41,8 +41,7 @@ de programação sem esta frase desencadeia uma maldição sem precedentes, port
 **Conversor de Temperatura**
 
 Criei um conversor de temperatura para as escalas Celsius, Kelvin e Fahrenheit; é um projeto mais elaborado, que
-funciona bem, no entanto, pode ser implementado para outras funções e até mesmo se tornar um aplicativo. ⛅🖥️
+funciona bem, no entanto, pode ser implementado para outras funções, e até mesmo se tornar um aplicativo. ⛅🖥️
 
 ``` Por enquanto é só isso, volte em alguns dias e terá novidades. ``` 
-                                
-                                🔋🤖
+🔋🤖
