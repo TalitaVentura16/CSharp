@@ -4,7 +4,8 @@ Bem-vindo ao meu repositório de C#! Aqui você encontrará alguns projetos simp
 
 **Informações Importantes**
 
-Antes de mergulharmos de cabeça no C#, é necessário que você tenha o framework .NET instalado em seu sistema. Se você estiver usando o Windows, é provável que ele já esteja prontinho para você. Caso contrário, você pode baixá-lo no site oficial da Microsoft: Download .NET
+Antes de mergulharmos de cabeça no C#, é necessário que você tenha o framework .NET instalado em seu sistema. Se você estiver usando o Windows, 
+é provável que ele já esteja prontinho para você. Caso contrário, você pode baixá-lo no site oficial da Microsoft: Download .NET
 
 **Como Instalar o C# no Debian?**
 
@@ -27,10 +28,21 @@ Vamos embarcar em nessa jornada! 🚀✨
 
 Ah, só para lembrar: Caso surja alguma dúvida pelo caminho é só avisar, estou aqui para te ajudar! 🥰 
 
-**Projetos:**
+## Projetos:
 
 Agora vem a melhor parte! Dê uma olhada nesses projetos: 
 
-***
-``` Por enquanto é só isso, volte em alguns dias e terá novidades. ``` 
 
+**Hello World**
+
+É apenas a impressão da famosa frase Hello World ou Olá Mundo em português. Reza lenda que começar uma nova linguagem
+de programação sem esta frase desencadeia uma maldição sem precedentes, portanto, já estou me prevenindo. heheheh 😌
+
+**Conversor de Temperatura**
+
+Criei um conversor de temperatura para as escalas Celsius, Kelvin e Fahrenheit; é um projeto mais elaborado, que
+funciona bem, no entanto, pode ser implementado para outras funções e até mesmo se tornar um aplicativo. ⛅🖥️
+
+``` Por enquanto é só isso, volte em alguns dias e terá novidades. ``` 
+                                
+                                🔋🤖
