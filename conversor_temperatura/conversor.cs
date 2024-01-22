@@ -49,7 +49,12 @@ class ConversorTemperatura
     }
 
 // Funcao Conversor
-    static void Conversor()
+static void Conversor()
+{
+    int escalaOriginal;
+    double temperatura;
+
+    do
     {
         // Informa as conversoes disponiveis 
         Console.WriteLine("\nPor favor, escolha a Escala de temperatura que deseja converter:");
@@ -57,22 +62,36 @@ class ConversorTemperatura
         Console.WriteLine("2 - Celsius");
         Console.WriteLine("3 - Kelvin");
 
-    // Para obter as temperaturas 
-    int escalaOriginal = Convert.ToInt32(Console.ReadLine());
+        // Tratamento de erro para a escolha da escala
+        if (!int.TryParse(Console.ReadLine(), out escalaOriginal) || escalaOriginal < 1 || escalaOriginal > 3)
+        {
+            Console.WriteLine("Opção inválida, por favor escolha 1, 2 ou 3.");
+            continue; // Reinicia loop
+        }
 
-    double temperatura;
-
-    // Para que o usuario informe a escala para conversao desejada 
+        // Para que o usuario informe a escala para conversao desejada 
         Console.WriteLine("\nPor favor, informe para qual escala que deseja converter:");
         Console.WriteLine("1 - Fahrenheit");
         Console.WriteLine("2 - Celsius");
         Console.WriteLine("3 - Kelvin");
 
-    int escalaConversao = Convert.ToInt32(Console.ReadLine());
+        int escalaConversao;
 
-    // Para que o usuario informe a temperatura desejada
+        // Tratamento de erro caso o usuario escolha uma temperatura invalida
+        if (!int.TryParse(Console.ReadLine(), out escalaConversao) || escalaConversao < 1 || escalaConversao > 3)
+        {
+            Console.WriteLine("Opção inválida. Por favor, escolha 1, 2 ou 3.");
+            continue; // reinicia o loop
+        }
+
+        // Para que o usuario informe a temperatura desejada
         Console.WriteLine("Por favor, informe a temperatura:");
-        temperatura = Convert.ToDouble(Console.ReadLine()); 
+        if (!double.TryParse(Console.ReadLine(), out temperatura))
+        {
+            Console.WriteLine("Por favor, digite uma temperatura válida.");
+            continue; // reinicia o loop
+        }
+
         double resultado = 0;
 
         if (escalaOriginal == 1)
@@ -100,42 +119,48 @@ class ConversorTemperatura
 
         // Exibe a conversao 
         Console.WriteLine($"A temperatura convertida é: {resultado}");
-    }
 
-    //A funcao que chama a funcao Conversor
+        // Pergunta se deseja realizar uma nova conversao
+        Console.WriteLine("\nDeseja realizar uma nova conversão?");
+        Console.WriteLine("1 - Sim");
+        Console.WriteLine("2 - Não");
 
-    static void RealizaConversao()
+    } while (true); // fim do loop
+}
+
+
+static void RealizaConversao()
+{
+    int opcao;
+
+    do
     {
-        int opcao;
+        Console.WriteLine("\nDeseja realizar uma nova conversão?");
+        Console.WriteLine("1 - Sim");
+        Console.WriteLine("2 - Não");
 
-        do
+        // tratamento de erro caso o usuario informa um valor invalido
+        if (!int.TryParse(Console.ReadLine(), out opcao) || opcao < 1 || opcao > 2)
         {
-            Console.WriteLine("\nDeseja realizar uma nova conversão?");
-            Console.WriteLine("1 - Sim");
-            Console.WriteLine("2 - Não");
+            Console.WriteLine("Atenção, digite um número válido (1 para 'Sim' ou 2 para 'Não'). ");
+            continue; // reinicia o  loop
+        }
 
-            // Para ler a entrada
-            ConsoleKeyInfo key = Console.ReadKey();
-            opcao = key.KeyChar - '0'; 
-
-            if (opcao == 1)
-            {
-                Conversor();
-            }
-            else if (opcao == 2)
-            {
-                Console.WriteLine("\nMuito Obrigada por usar o Conversor!");
-                Console.WriteLine("************************************");
-                Console.WriteLine("Programado por: Talita Ventura <3");
-                Console.WriteLine("************************************");
-            }
-            else
-            {
-                Console.WriteLine("\nOpção inválida. Por favor, escolha 1 para 'Sim' ou 2 para 'Não'.");
-            }
-
-        } while (opcao != 2); 
-    }
+        if (opcao == 1)
+        {
+            Conversor();
+        }
+        else if (opcao == 2)
+        {
+            Console.WriteLine("\nMuito Obrigada por usar o Conversor!");
+            Console.WriteLine("************************************");
+            Console.WriteLine("Programado por: Talita Ventura <3");
+            Console.WriteLine("************************************");
+            break; // Sai do loop
+        }
+        
+    } while (true); // final do loop
+}
 
     static void Apresentacao()
     {
