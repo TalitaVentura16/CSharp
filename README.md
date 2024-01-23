@@ -43,5 +43,10 @@ de programação sem esta frase desencadeia uma maldição sem precedentes, port
 Criei um conversor de temperatura para as escalas Celsius, Kelvin e Fahrenheit; é um projeto mais elaborado, que
 funciona bem, no entanto, pode ser implementado para outras funções, e até mesmo se tornar um aplicativo. ⛅🖥️
 
+**Jogo da Forca**
+
+O famoso jogo da forca, o programa escolhe uma palavra aleatória dentro de sua lista, de modo que o jogador tem que 
+tentar advinhar a palavra, a cada letra errada o bonequinho chega mais perto da morte. 🔮🪦
+
 ``` Por enquanto é só isso, volte em alguns dias e terá novidades. ``` 
 🔋🤖

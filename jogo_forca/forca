@@ -1,0 +1,19 @@
+/// <summary>
+/// O jogo da forca, o objetivo desse programa eh que o usuario consiga advinhar a palavra antes do bonequinho morrer
+/// </summary>
+
+using System;
+using System.Collections.Generic;
+class Jogo
+{
+    static void Palavras()
+    {
+        List<string> palavras = new List<string>();
+
+        // Palavras da lista
+        palavras.Add("Azul");
+        palavras.Add("Computador");
+        
+
+    }
+}
