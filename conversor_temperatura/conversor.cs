@@ -51,11 +51,11 @@ class ConversorTemperatura
 // Funcao Conversor
 static void Conversor()
 {
-    int escalaOriginal;
-    double temperatura;
-
-    do
+    while (true)
     {
+        int escalaOriginal;
+        double temperatura;
+
         // Informa as conversoes disponiveis 
         Console.WriteLine("\nPor favor, escolha a Escala de temperatura que deseja converter:");
         Console.WriteLine("1 - Fahrenheit");
@@ -82,86 +82,72 @@ static void Conversor()
         {
             Console.WriteLine("Opção inválida. Por favor, escolha 1, 2 ou 3.");
             continue; // reinicia o loop
+            }
+
+            // Para que o usuario informe a temperatura desejada
+            Console.WriteLine("Por favor, informe a temperatura:");
+            if (!double.TryParse(Console.ReadLine(), out temperatura))
+            {
+                Console.WriteLine("Por favor, digite uma temperatura válida.");
+                continue; // reinicia o loop
+            }
+
+            double resultado = 0;
+
+            if (escalaOriginal == 1)
+            {
+                // Fahrenheit e a outra escala escolhida
+                if (escalaConversao == 2)
+                    resultado = FahrenheitCelsius(temperatura);
+                else if (escalaConversao == 3)
+                    resultado = FahrenheitKelvin(temperatura);
+            }
+            else if (escalaOriginal == 2)
+            {
+                if (escalaConversao == 1)
+                    resultado = CelsiusFahrenheit(temperatura);
+                else if (escalaConversao == 3)
+                    resultado = CelsiusKelvin(temperatura);
+            }
+            else if (escalaOriginal == 3)
+            {
+                if (escalaConversao == 1)
+                    resultado = KelvinFahrenheit(temperatura);
+                else if (escalaConversao == 2)
+                    resultado = KelvinCelsius(temperatura);
+            }
+
+            // Exibe a conversao 
+            Console.WriteLine($"A temperatura convertida é: {resultado}");
+
+            // Pergunta se deseja realizar uma nova conversao
+            Console.WriteLine("\nDeseja realizar uma nova conversão?");
+            Console.WriteLine("1 - Sim");
+            Console.WriteLine("2 - Não");
+
+            int opcao;
+
+            // Tratamento de erro para garantir que a opcao seja valida
+            if (!int.TryParse(Console.ReadLine(), out opcao))
+            {
+                Console.WriteLine("Por favor, digite um número válido (1 para 'Sim' ou 2 para 'Não').");
+                continue; // Reinicia o loop
+            }
+
+            if (opcao == 2)
+            {
+                Console.WriteLine("\nMuito Obrigada por usar o Conversor!");
+                Console.WriteLine("************************************");
+                Console.WriteLine("Programado por: Talita Ventura <3");
+                Console.WriteLine("************************************");
+                break; // Sai do loop
+            }
+            else if (opcao != 1)
+            {
+                Console.WriteLine("Atenção, digite um número válido (1 para 'Sim' ou 2 para 'Não').");
+            }
         }
-
-        // Para que o usuario informe a temperatura desejada
-        Console.WriteLine("Por favor, informe a temperatura:");
-        if (!double.TryParse(Console.ReadLine(), out temperatura))
-        {
-            Console.WriteLine("Por favor, digite uma temperatura válida.");
-            continue; // reinicia o loop
-        }
-
-        double resultado = 0;
-
-        if (escalaOriginal == 1)
-        {
-            // Fahrenheit e a outra escala escolhida
-            if (escalaConversao == 2)
-                resultado = FahrenheitCelsius(temperatura);
-            else if (escalaConversao == 3)
-                resultado = FahrenheitKelvin(temperatura);
-        }
-        else if (escalaOriginal == 2)
-        {
-            if (escalaConversao == 1)
-                resultado = CelsiusFahrenheit(temperatura);
-            else if (escalaConversao == 3)
-                resultado = CelsiusKelvin(temperatura);
-        }
-        else if (escalaOriginal == 3)
-        {
-            if (escalaConversao == 1)
-                resultado = KelvinFahrenheit(temperatura);
-            else if (escalaConversao == 2)
-                resultado = KelvinCelsius(temperatura);
-        }
-
-        // Exibe a conversao 
-        Console.WriteLine($"A temperatura convertida é: {resultado}");
-
-        // Pergunta se deseja realizar uma nova conversao
-        Console.WriteLine("\nDeseja realizar uma nova conversão?");
-        Console.WriteLine("1 - Sim");
-        Console.WriteLine("2 - Não");
-
-    } while (true); // fim do loop
-}
-
-
-static void RealizaConversao()
-{
-    int opcao;
-
-    do
-    {
-        Console.WriteLine("\nDeseja realizar uma nova conversão?");
-        Console.WriteLine("1 - Sim");
-        Console.WriteLine("2 - Não");
-
-        // tratamento de erro caso o usuario informa um valor invalido
-        if (!int.TryParse(Console.ReadLine(), out opcao) || opcao < 1 || opcao > 2)
-        {
-            Console.WriteLine("Atenção, digite um número válido (1 para 'Sim' ou 2 para 'Não'). ");
-            continue; // reinicia o  loop
-        }
-
-        if (opcao == 1)
-        {
-            Conversor();
-        }
-        else if (opcao == 2)
-        {
-            Console.WriteLine("\nMuito Obrigada por usar o Conversor!");
-            Console.WriteLine("************************************");
-            Console.WriteLine("Programado por: Talita Ventura <3");
-            Console.WriteLine("************************************");
-            break; // Sai do loop
-        }
-        
-    } while (true); // final do loop
-}
-
+    }
     static void Apresentacao()
     {
         // texto de apresentacao 
@@ -174,6 +160,6 @@ static void RealizaConversao()
         {
             Apresentacao();
             Conversor();
-            RealizaConversao();
         }
-    }
+}
+    
