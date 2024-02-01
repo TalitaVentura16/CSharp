@@ -185,40 +185,48 @@ class Jogo
         }
     }
 
+        //Funcao para advinhar uma letra
         static void AdivinharLetra()
-    {
-        // Obtenha a letra do jogador (pode ser melhorado para tratar inputs inválidos)
-        Console.WriteLine("Digite uma letra:");
-        char letra = Console.ReadKey().KeyChar;
-
-        // Verifique se a letra está na palavra secreta
-        bool acertou = false;
-        for (int i = 0; i < palavraSecreta.Length; i++)
         {
-            if (palavraSecreta[i] == letra)
+            // Obtenha a letra do jogador (pode ser melhorado para tratar inputs inválidos)
+            Console.WriteLine("Digite uma letra: ");
+            char letra = Console.ReadKey().KeyChar;
+
+            // Verifique se a letra esta na palavra secreta
+            if (!Char.IsLetter(letra))
             {
-                palavraEscondida = palavraEscondida.Substring(0, i) + letra + palavraEscondida.Substring(i + 1);
-                acertou = true;
+                Console.WriteLine("\nPor favor, digite uma letra válida.");
+                AdivinharLetra();
+                return;
             }
-        }
 
-        if (!acertou)
-        {
-            erros++;
-        }
+            bool acertou = false;
+            for (int i = 0; i < palavraSecreta.Length; i++)
+            {
+                if (palavraSecreta[i] == letra)
+                {
+                    palavraEscondida = palavraEscondida.Substring(0, i) + letra + palavraEscondida.Substring(i + 1);
+                    acertou = true;
+                }
+            }
+
+            if (!acertou)
+            {
+                erros++;
+            }
     }
 
-    static void DesenhaBonequinho()
+    static string DesenhaBonequinho()
     {
         // Exiba a representação do bonequinho de acordo com os erros
-        Console.WriteLine(erros >= 1 ? "  " : " ");
-        Console.WriteLine(erros >= 2 ? cabeca : " ");
-        Console.WriteLine(erros >= 3 ? tronco : " ");
-        Console.WriteLine(erros >= 4 ? bracoEsquerdo : " ");
-        Console.WriteLine(erros >= 5 ? bracoDireito : " ");
-        Console.WriteLine(erros >= 6 ? pernaEsquerda : " ");
-        Console.WriteLine(erros >= 7 ? pernaDireita : " ");
+        string[] partesDoBonequinho = { "", cabeca, tronco, bracoEsquerdo, bracoDireito, pernaEsquerda, pernaDireita};
+        string bonequinho = "";
 
+        for (int i = 1; i <= erros; i++)
+        {
+            bonequinho += partesDoBonequinho[i] + "\n";
+        }
+        return bonequinho;
     }
 
     // O objetivo dessa funcao eh obter informacoes sobre o jogador
@@ -248,23 +256,22 @@ class Jogo
 
         while (erros <8 && palavraEscondida.Contains("_"))
         {
-            Console.Clear();
-            DesenhaBonequinho();
+            Console.WriteLine(DesenhaBonequinho());
             ExibePalavraEscondida();
             AdivinharLetra();
         }
-        Console.Clear();
-        Console.WriteLine(forca);
-        DesenhaBonequinho();
+        
+        Console.WriteLine(DesenhaBonequinho());      
         ExibirPalavraEscondida();
 
-        if (erros >= 7)
+        if (erros >= 8)
         {
             Console.WriteLine(gameOver);
             Console.WriteLine($"Atenção! A palavra era: {palavraSecreta}");
         }
         else
         {
+            Console.WriteLine("Parabéns! Você ganhou!");
             Console.WriteLine(vitoria);
         }
     }
