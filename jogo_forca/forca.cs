@@ -6,14 +6,22 @@ using System;
 using System.Collections.Generic;
 class Jogo
 {
-    static List<string> palavras = new List<string>
+    class PalavraDica
     {
-        // Palavras da lista
-        "Azul",
-        "Computador",
-        "Gelo seco",
-        "Refrigerante",
-        "Janela"
+        public string Palavra { get; set; }
+        public string Dica { get; set; }
+    }   
+
+    //Lista de palavras e dicas
+    static List<PalavraDica> palavrasEDicas = new List<PalavraDica>
+    {
+        new PalavraDica { Palavra = "Azul", Dica = "Cor do céu em um dia claro" },
+        new PalavraDica { Palavra ="computador", Dica = "Dispositivo eletrônico" }, 
+        new PalavraDica { Palavra ="gelo seco", Dica = "CO2(s)" },
+        new PalavraDica { Palavra ="refrigerante", Dica = "Bebida gaseificada" },
+        new PalavraDica { Palavra ="janela", Dica = "Parte da casa" },
+        new PalavraDica { Palavra ="karl marx", Dica = "Lider Comunista" },
+        new PalavraDica { Palavra = "breaking bad", Dica = "Série de Televisão" }
     };
 
      static string gameOver = 
@@ -63,7 +71,7 @@ class Jogo
     "░░░░░░░▀▄▀░░░░░░░░░\n";
 
     static string tronco =
-        "░░░░░░░░░░░░░░░░░░░\n" +
+    "░░░░░░░░░░░░░░░░░░░\n" +
     "░░░░░░░▄▄▄░░░░░░░░░\n" +
     "░░░░░░▐▀█▀▌░░░░░░░░\n" +
     "░░░░░░▐█▄█▌░░░░░░░░\n" +
@@ -87,7 +95,6 @@ class Jogo
     "░▄░▐░░░▄▄░█░▀▀░░░░░\n" +
     "░▀█▌░░░▄░▀█▀░▀░░░░░\n";
 
-
     static string bracoDireito =
     "░░░░░░░░░░░░░▄▐░░░░\n" +
     "░░░░░░░▄▄▄░░▄██▄░░░\n" +
@@ -99,7 +106,6 @@ class Jogo
     "░░░░▌░▄▄▄▐▌▀▀▀░░░░░\n" +
     "░▄░▐░░░▄▄░█░▀▀░░░░░\n" +
     "░▀█▌░░░▄░▀█▀░▀░░░░░\n";
-
 
     static string pernaEsquerda =
     "░░░░░░░░░░░░░▄▐░░░░\n" +
@@ -146,8 +152,8 @@ class Jogo
     {
         // para que a palavra seja escolhida de modo aleatorio
         Random random = new Random();
-        int indice = random.Next(0, palavras.Count);
-        palavraSecreta = palavras[indice];
+        int indice = random.Next(0, palavrasEDicas.Count);
+        palavraSecreta = palavrasEDicas[indice].Palavra;
         InicializarPalavraEscondida();
     }
 
@@ -188,7 +194,10 @@ class Jogo
         //Funcao para advinhar uma letra
         static void AdivinharLetra()
         {
-            // Obtenha a letra do jogador (pode ser melhorado para tratar inputs inválidos)
+            // dicas para a palavra secreta
+            Console.WriteLine("Atenção! A dica para a palavra Secreta é: " + palavrasEDicas.Find(x => x.Palavra == palavraSecreta)?.Dica);
+            
+            // solicita a letra para o jogador
             Console.WriteLine("Digite uma letra: ");
             char letra = Console.ReadKey().KeyChar;
 
@@ -222,7 +231,7 @@ class Jogo
         string[] partesDoBonequinho = { "", cabeca, tronco, bracoEsquerdo, bracoDireito, pernaEsquerda, pernaDireita};
         string bonequinho = "";
 
-        for (int i = 1; i <= erros; i++)
+        for (int i = 0; i < erros; i++) // Corrigido aqui
         {
             bonequinho += partesDoBonequinho[i] + "\n";
         }
@@ -230,9 +239,11 @@ class Jogo
     }
 
     // O objetivo dessa funcao eh obter informacoes sobre o jogador
+
+    static string nomeJogador;
+
     static void introducao ()
     {
-        string nomeJogador;
 
         // Para obter o nome do jogador
         Console.WriteLine("\nQual o seu nome, jogador?");
@@ -246,15 +257,25 @@ class Jogo
         "trevas, prontas para devorar sua chance de sobrevivência...";
 
         Console.WriteLine(sinopse);
-    }    
-    
+    }
+
+        static void fimJogo ()
+    {
+        string textoFinal = "\nUm grito agudo irrompe pela sala sombria, enquanto um vento gélido percorre cada centímetro do seu corpo. \n" + 
+        "Sombras negras emergem das profundezas da escuridão, envolvendo seus braços e pernas. Gradualmente \n" +
+        $"o mundo ao seu redor desvanece em total escuridão. Enfim, {nomeJogador}, o jogo acabou e o mundo ao seu redor \n" +
+        "chegou ao fim...\n";
+
+        Console.WriteLine(textoFinal);
+    } 
+      
     static void Jogar ()
     {
         Console.WriteLine(forca);
         introducao();   
         EscolherPalavraAleatoria();
 
-        while (erros <8 && palavraEscondida.Contains("_"))
+        while (erros <7 && palavraEscondida.Contains("_"))
         {
             Console.WriteLine(DesenhaBonequinho());
             ExibePalavraEscondida();
@@ -264,14 +285,15 @@ class Jogo
         Console.WriteLine(DesenhaBonequinho());      
         ExibirPalavraEscondida();
 
-        if (erros >= 8)
+        if (erros >= 7)
         {
+            fimJogo();
             Console.WriteLine(gameOver);
             Console.WriteLine($"Atenção! A palavra era: {palavraSecreta}");
         }
         else
         {
-            Console.WriteLine("Parabéns! Você ganhou!");
+            Console.WriteLine("Parabéns! Você ganhou!\n");
             Console.WriteLine(vitoria);
         }
     }
