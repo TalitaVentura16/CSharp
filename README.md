@@ -48,5 +48,11 @@ funciona bem, no entanto, pode ser implementado para outras funções, e até me
 O famoso jogo da forca, o programa escolhe uma palavra aleatória dentro de sua lista, de modo que o jogador tem que 
 tentar advinhar a palavra, a cada letra errada o bonequinho chega mais perto da morte. 🔮🪦
 
+**Jogo de Advinhações**
+
+O objetivo desse jogo é que o participante seja apresentado a uma série de perguntas, e a cada resposta certa a sua pontuação aumenta...
+
+Essa é a ideia básica do jogo, ainda estou pensando nas fucionalidades que ele terá, e como será organizado. 
+
 ``` Por enquanto é só isso, volte em alguns dias e terá novidades. ``` 
 🔋🤖
