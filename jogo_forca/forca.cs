@@ -194,35 +194,34 @@ class Jogo
         //Funcao para advinhar uma letra
         static void AdivinharLetra()
         {
-            // dicas para a palavra secreta
-            Console.WriteLine("Atenção! A dica para a palavra Secreta é: " + palavrasEDicas.Find(x => x.Palavra == palavraSecreta)?.Dica);
-            
-            // solicita a letra para o jogador
-            Console.WriteLine("Digite uma letra: ");
-            char letra = Console.ReadKey().KeyChar;
+        // Dica para a palavra secreta
+        Console.WriteLine("Atenção! A dica para a palavra Secreta é: " + palavrasEDicas.Find(x => x.Palavra == palavraSecreta)?.Dica);
 
-            // Verifique se a letra esta na palavra secreta
-            if (!Char.IsLetter(letra))
-            {
-                Console.WriteLine("\nPor favor, digite uma letra válida.");
-                AdivinharLetra();
-                return;
-            }
+        // Solicitar uma letra ao jogador
+        Console.WriteLine("Digite uma letra: ");
+        char letra = Console.ReadKey().KeyChar;
 
-            bool acertou = false;
-            for (int i = 0; i < palavraSecreta.Length; i++)
-            {
-                if (palavraSecreta[i] == letra)
-                {
-                    palavraEscondida = palavraEscondida.Substring(0, i) + letra + palavraEscondida.Substring(i + 1);
-                    acertou = true;
-                }
-            }
+        if (letra != ' ' && !Char.IsLetter(letra))
+        {
+            Console.WriteLine("\nPor favor, digite uma letra válida.");
+            AdivinharLetra();
+            return;
+        }
 
-            if (!acertou)
+        bool acertou = false;
+        for (int i = 0; i < palavraSecreta.Length; i++)
+        {
+            if (Char.ToLower(palavraSecreta[i]) == Char.ToLower(letra))
             {
-                erros++;
+                palavraEscondida = palavraEscondida.Substring(0, i) + letra + palavraEscondida.Substring(i + 1);
+                acertou = true;
             }
+        }
+
+        if (!acertou)
+        {
+            erros++;
+        }
     }
 
     static string DesenhaBonequinho()
