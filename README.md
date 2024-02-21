@@ -48,11 +48,14 @@ funciona bem, no entanto, pode ser implementado para outras funções, e até me
 O famoso jogo da forca, o programa escolhe uma palavra aleatória dentro de sua lista, de modo que o jogador tem que 
 tentar advinhar a palavra, a cada letra errada o bonequinho chega mais perto da morte. 🔮🪦
 
-**Jogo de Advinhações**
+**Aplicativo de Previsão do Tempo**
 
-O objetivo desse jogo é que o participante seja apresentado a uma série de perguntas, e a cada resposta certa a sua pontuação aumenta...
+O objetivo desse programa é fornecer a previsão do tempo para o usuário, a partir da informações de sua localização, para isso usarei uma Api de previsão do tempo. 
 
-Essa é a ideia básica do jogo, ainda estou pensando nas fucionalidades que ele terá, e como será organizado. 
+Pretendo inserir no arquivo informações importantes sobre as mudanças climáticas, o que seria interessante tendo em vista o atual panorama e os acontecimentos recentes de eventos extremos... 🌞🌥️
+
+
+Essa é a ideia básica do aplicativo, ainda estou pensando nas fucionalidades que ele terá, e como será organizado. 
 
 ``` Por enquanto é só isso, volte em alguns dias e terá novidades. ``` 
 🔋🤖
