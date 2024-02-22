@@ -11,6 +11,16 @@ namespace PrevisaoTempo
 {
     class Previsao 
     {
+        public string Local { get; set; }
+
+        static void Localizacao()
+        {
+            Console.Writeline("Defina a local")
+            Local = Console.ReadLine();
+        }
         
+
     }
+
+    
 }
